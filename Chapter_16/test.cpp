@@ -1,43 +1,22 @@
 import std;
 using namespace std;
 
-// int sum(span<int> s)
-// {
-// 	int s = 0;
-// 	for(int x : s)
-// 		s += x;
-// 	return s;
-// }
-
-// int arr[100];
-// // …
-// int r = sum(arr);
-
-// int main()
-// {
-//     int arr[100];
-//     // …
-//     int r = sum(arr);
-// }
-
-import std;
-
-int sum(span<int> values)
+bool is_palindrome(span<char> s)
 {
-    int s = 0;
+    if (s.size() <= 1)
+        return true;
 
-    for (int x : values) // for every number in array
-        s += x;
+    if (s.front() != s.back())
+        return false;
 
-    return s;
+    return is_palindrome(s.subspan(1, s.size() - 2));
 }
 
 int main()
 {
-    int data[] = {1, 2, 3, 4, 5};
+    char word[] = "level";
 
-    span<int, 5> arr{data}; // span does not store the elements. It provides a view of existing array
-
-    println("Sum = {}", sum(arr));
+    cout << boolalpha
+         << is_palindrome(span<char>{word, strlen(word)})
+         << '\n';
 }
-
