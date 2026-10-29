@@ -32,3 +32,6 @@ int main()
         cout << " a palindrome\n"; // Finish the result and start a new line.
     }
 }
+
+//arr = [9, 0, 4, 3, 0]
+// arr[9]

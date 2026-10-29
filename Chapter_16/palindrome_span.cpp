@@ -1,22 +1,33 @@
 import std;
 using namespace std;
 
-bool is_palindrome(span<char> s)
+bool is_palindrome(const char* first, const char* last)
 {
-    if (s.size() <= 1)
+    if (first >= last)
         return true;
 
-    if (s.front() != s.back())
+    if (*first != *(last - 1))
         return false;
 
-    return is_palindrome(s.subspan(1, s.size() - 2));
+    return is_palindrome(first + 1, last - 1);
+}
+
+bool is_palindrome(span<char> s)
+{
+    return s.size()
+        ? is_palindrome(s.data(), s.data() + s.size())
+        : true;
 }
 
 int main()
 {
     char word[] = "level";
+    char word2[] = "hello";
+    char word3[] = "abba";
+    char word4[] = "";
 
-    cout << boolalpha
-         << is_palindrome(span<char>{word, strlen(word)})
-         << '\n';
+    print("level: {}\n", is_palindrome(span<char>{word, 5}));
+    print("hello: {}\n", is_palindrome(span<char>{word2, 5}));
+    print("abba: {}\n", is_palindrome(span<char>{word3, 4}));
+    print("empty: {}\n", is_palindrome(span<char>{word4, 0}));
 }

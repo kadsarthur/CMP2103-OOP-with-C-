@@ -21,3 +21,6 @@ int main()
 
     cout << my_strlen(name) << '\n';
 }
+
+
+
