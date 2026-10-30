@@ -1,30 +1,30 @@
 import std;
 using namespace std;
 
-template <typename T, typename U>
-concept NumericPair =
-    (integral<T> || floating_point<T>) &&
-    (integral<U> || floating_point<U>);
+// integral
+// floating_point
+// range
+// size_t
+// is_num(T)
 
-template <typename T, typename U>
-    requires NumericPair<T, U>
-class Pair
+// template<typename T, typename U>
+// concept NumericPair = (integral<T> || floating_point<T>) && (integral<U> || floating_point<U>);
+
+// predicate
+// Yes, No
+// True, False
+
+template <typename T>
+// requires NumericPair<T, U>
+T fc(T t)
 {
-public:
-    T first;
-    U second;
-
-    Pair(T a, U b) : first(a), second(b) {}
-
-    auto sum() const
-    {
-        return first + second;
-    }
-};
-
+    return t;
+}
 int main()
 {
-    Pair<int, double> p(10, 2.5);
+    int r = fc(5);
+    double d = fc(6.9);
 
-    print("Sum: {}\n", p.sum());
+    print("{}\n", r);
+    print("{}", d);
 }
