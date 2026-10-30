@@ -15,7 +15,7 @@ class Vector
 
 public:
     // Constructor
-    explicit Vector(int s)
+    Vector(int s)
         : sz(s), elem(new T[s]{})
     {
     }
