@@ -3,19 +3,19 @@ import std;
 using namespace std;
 
 // Define a concept
-template <typename T>
+template<typename T>
 concept Element = is_arithmetic_v<T>;
 
 // Class template constrained by Element
-template <Element T>
+template<Element T>
 class Vector
 {
     int sz;
-    T *elem;
+    T* elem;
 
 public:
     // Constructor
-    explicit Vector(int s)
+    Vector(int s)
         : sz(s), elem(new T[s]{})
     {
     }
@@ -27,7 +27,7 @@ public:
     }
 
     // Access an element
-    T &operator[](int n)
+    T& operator[](int n)
     {
         return elem[n];
     }
